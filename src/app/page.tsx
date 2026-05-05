@@ -15,46 +15,35 @@ import { Suspense, useEffect, useRef, useState } from "react";
 
 
 export default function Home() {
-  const lenisRef = useRef<any>(null);
+ const lenisRef = useRef(null);
   const [showBtn, setShowBtn] = useState(false);
 
-  // ✅ Lenis setup (fixed)
+  // Lenis setup
   useEffect(() => {
-    let lenis: any;
-
     import("@studio-freight/lenis").then((module) => {
       const Lenis = module.default;
-      lenis = new Lenis({ duration: 1.2, smooth: true });
+      const lenis = new Lenis({ duration: 1.2, smooth: true });
       lenisRef.current = lenis;
 
-      function raf(time: number) {
+      function raf(time) {
         lenis.raf(time);
         requestAnimationFrame(raf);
       }
-
       requestAnimationFrame(raf);
-    });
 
-    // ✅ proper cleanup
-    return () => {
-      if (lenis) lenis.destroy();
-    };
+      return () => lenis.destroy();
+    });
   }, []);
 
-  // ✅ scroll detection (works fine with Lenis too)
+  // Show button after scroll
   useEffect(() => {
-    const handleScroll = () => {
-      setShowBtn(window.scrollY > 300);
-    };
-
+    const handleScroll = () => setShowBtn(window.scrollY > 300);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const scrollTop = () => {
-    if (lenisRef.current) {
-      lenisRef.current.scrollTo(0);
-    }
+    if (lenisRef.current) lenisRef.current.scrollTo(0);
   };
   
   return (
