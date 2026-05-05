@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import WavingHand from "./WavingHand";
 import GlowFlies from "./GlowFlies";
+import MyWork from "@/components/MyWork";
 
 const Landing = () => {
   const [mouse, setMouse] = useState({ x: 0, y: 0 });
@@ -18,7 +19,7 @@ const Landing = () => {
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
   return (
-    <div className="w-full  pt-8 h-full ">
+    <div className="w-full  pt-8 h-[50%] ">
       <div className=" ">
         <div className="flex gap-4 items-center justify-center  w-[75%] md:w-[90%] mx-auto">
           <WavingHand />
@@ -27,7 +28,7 @@ const Landing = () => {
           </h1>
         </div>
       </div>
-      <section className="relative   flex   justify-center overflow-hidden   text-white">
+      <section className="relative   flex   justify-center overflow-hidden   text-white ">
         <motion.h1
           style={{
             transform: `translate(${mouse.x * -0.02}px, ${mouse.y * -0.02}px)`,
@@ -43,13 +44,14 @@ const Landing = () => {
           <div className="absolute inset-y-0 left-1/2 -translate-x-1/2  w-full z-10">
             <GlowFlies />
           </div>
-          <Image
+          {/* <Image
             src="/cat.webp"
             alt="hero"
             width={1000}
             height={1000}
             className="relative z-10 w-60 md:w-180 mt-12"
-          />
+          /> */}
+          <MyWork /> 
           <div className="absolute inset-y-0 left-1/2 -translate-x-1/2  w-full z-10">
             <GlowFlies />
           </div>

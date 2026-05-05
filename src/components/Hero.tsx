@@ -15,6 +15,7 @@ export default function Hero() {
         className="  absolute z-0  "
         fill
       />
+      
       <Navbar />
 
       <div className="absolute inset-y-0 left-1/2 -translate-x-1/2  w-full">

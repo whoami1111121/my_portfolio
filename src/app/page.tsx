@@ -7,6 +7,9 @@ import Marquee from "@/components/Marquee";
 import Projects from "@/components/Projects";
 import StringEffect from "@/components/StringEffect";
 import MySkill from "@/components/MySkill";
+import Services from "@/components/Services";
+import Hero from "@/components/Hero";
+import AboutMe from "@/components/AboutMe";
 
 // import { Environment, OrbitControls } from "@react-three/drei";
 // import { Canvas } from "@react-three/fiber";
@@ -49,11 +52,15 @@ export default function Home() {
   return (
     <>
       <div className="bg-background font-instrument ">
-        {/* <Hero /> */}
-        {/* <AboutMe /> */}
-        {/* <Services /> */}
-        {/* <MySkill /> */}
-        {/* <Projects /> */}
+        <Hero />
+
+        <AboutMe />
+        <Services />
+        <MySkill />
+        <Projects />
+        <Marquee />  
+
+        
         <Contact />
         {/* {showBtn && (
           <div className="fixed bottom-10 right-10 w-28 h-28 z-50 cursor-pointer">
@@ -74,9 +81,8 @@ export default function Home() {
             </Canvas>
           </div>
         )} */}
-        
          <StringEffect />
-        <Marquee />  
+        
         <Footer />
       </div>
     </>

@@ -2,7 +2,7 @@ import React from 'react'
 
 const Footer = () => {
     return (
-        <div className='  py-4 text-center bg-cardbg'>
+        <div className='  pb-12 pt-4     text-center '>
             © 2026 Marketify Inc. All Rights Reserved.
         </div>
     )

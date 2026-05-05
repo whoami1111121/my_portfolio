@@ -50,12 +50,12 @@ const StringEffect = () => {
   }, [width]);
 
   return (
-    <div className="flex items-center justify-center w-full h-[60px]  bg-[#020024] overflow-hidden">
+    <div className="flex items-center justify-center w-full h-[60px]  bg-[#02002400] overflow-hidden">
       <div id="string" className="w-full">
         <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
           <path
             d={`M 10 70 Q ${width / 2} 70 ${width - 20} 70`}
-            stroke="white"
+            stroke="#05cfcf"
             fill="transparent"
           />
         </svg>
