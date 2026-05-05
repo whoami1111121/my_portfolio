@@ -15,47 +15,47 @@ import { Suspense, useEffect, useRef, useState } from "react";
 
 
 export default function Home() {
-  // const lenisRef = useRef<any>(null);
-  // const [showBtn, setShowBtn] = useState(false);
+  const lenisRef = useRef<any>(null);
+  const [showBtn, setShowBtn] = useState(false);
 
-  // // ✅ Lenis setup (fixed)
-  // useEffect(() => {
-  //   let lenis: any;
+  // ✅ Lenis setup (fixed)
+  useEffect(() => {
+    let lenis: any;
 
-  //   import("@studio-freight/lenis").then((module) => {
-  //     const Lenis = module.default;
-  //     lenis = new Lenis({ duration: 1.2, smooth: true });
-  //     lenisRef.current = lenis;
+    import("@studio-freight/lenis").then((module) => {
+      const Lenis = module.default;
+      lenis = new Lenis({ duration: 1.2, smooth: true });
+      lenisRef.current = lenis;
 
-  //     function raf(time: number) {
-  //       lenis.raf(time);
-  //       requestAnimationFrame(raf);
-  //     }
+      function raf(time: number) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
 
-  //     requestAnimationFrame(raf);
-  //   });
+      requestAnimationFrame(raf);
+    });
 
-  //   // ✅ proper cleanup
-  //   return () => {
-  //     if (lenis) lenis.destroy();
-  //   };
-  // }, []);
+    // ✅ proper cleanup
+    return () => {
+      if (lenis) lenis.destroy();
+    };
+  }, []);
 
-  // // ✅ scroll detection (works fine with Lenis too)
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     setShowBtn(window.scrollY > 300);
-  //   };
+  // ✅ scroll detection (works fine with Lenis too)
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowBtn(window.scrollY > 300);
+    };
 
-  //   window.addEventListener("scroll", handleScroll);
-  //   return () => window.removeEventListener("scroll", handleScroll);
-  // }, []);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
-  // const scrollTop = () => {
-  //   if (lenisRef.current) {
-  //     lenisRef.current.scrollTo(0);
-  //   }
-  // };
+  const scrollTop = () => {
+    if (lenisRef.current) {
+      lenisRef.current.scrollTo(0);
+    }
+  };
   
   return (
     <>
@@ -64,9 +64,9 @@ export default function Home() {
         {/* <AboutMe /> */}
         {/* <Services /> */}
         {/* <MySkill /> */}
-        <Projects />
+        {/* <Projects /> */}
         <Contact />
-        {/* {showBtn && (
+        {showBtn && (
           <div className="fixed bottom-10 right-10 w-28 h-28 z-50 cursor-pointer">
             <Canvas shadows camera={{ position: [0, 0, 5], fov: 40 }}>
               <ambientLight intensity={0.7} />
@@ -84,7 +84,7 @@ export default function Home() {
               <OrbitControls enableZoom={false} enablePan={false} />
             </Canvas>
           </div>
-        )} */}
+        )}
         
          <StringEffect />
         <Marquee />  
