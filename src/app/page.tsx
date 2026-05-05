@@ -63,7 +63,7 @@ export default function Home() {
         {/* <Hero /> */}
         {/* <AboutMe /> */}
         {/* <Services /> */}
-        <MySkill />
+        {/* <MySkill /> */}
         <Projects />
         <Contact />
         {/* {showBtn && (

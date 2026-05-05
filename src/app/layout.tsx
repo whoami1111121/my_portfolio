@@ -24,7 +24,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={` ${instrumentSans.variable} antialiased  `}>
         {"/" !== "/" && <div>asdfsaf</div>}
-        {/* <SmoothScroll /> */}
+        <SmoothScroll />
         {children}
       </body>
     </html>
