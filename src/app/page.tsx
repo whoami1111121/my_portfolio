@@ -8,43 +8,43 @@ import Projects from "@/components/Projects";
 import StringEffect from "@/components/StringEffect";
 import MySkill from "@/components/MySkill";
 
-import { Environment, OrbitControls } from "@react-three/drei";
-import { Canvas } from "@react-three/fiber";
-import { Suspense, useEffect, useRef, useState } from "react";
+// import { Environment, OrbitControls } from "@react-three/drei";
+// import { Canvas } from "@react-three/fiber";
+// import { Suspense, useEffect, useRef, useState } from "react";
 
 
 
 export default function Home() {
- const lenisRef = useRef(null);
-  const [showBtn, setShowBtn] = useState(false);
+//  const lenisRef = useRef(null);
+//   const [showBtn, setShowBtn] = useState(false);
 
-  // Lenis setup
-  useEffect(() => {
-    import("@studio-freight/lenis").then((module) => {
-      const Lenis = module.default;
-      const lenis = new Lenis({ duration: 1.2, smooth: true });
-      lenisRef.current = lenis;
+//   // Lenis setup
+//   useEffect(() => {
+//     import("@studio-freight/lenis").then((module) => {
+//       const Lenis = module.default;
+//       const lenis = new Lenis({ duration: 1.2, smooth: true });
+//       lenisRef.current = lenis;
 
-      function raf(time) {
-        lenis.raf(time);
-        requestAnimationFrame(raf);
-      }
-      requestAnimationFrame(raf);
+//       function raf(time) {
+//         lenis.raf(time);
+//         requestAnimationFrame(raf);
+//       }
+//       requestAnimationFrame(raf);
 
-      return () => lenis.destroy();
-    });
-  }, []);
+//       return () => lenis.destroy();
+//     });
+//   }, []);
 
-  // Show button after scroll
-  useEffect(() => {
-    const handleScroll = () => setShowBtn(window.scrollY > 300);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+//   // Show button after scroll
+//   useEffect(() => {
+//     const handleScroll = () => setShowBtn(window.scrollY > 300);
+//     window.addEventListener("scroll", handleScroll);
+//     return () => window.removeEventListener("scroll", handleScroll);
+//   }, []);
 
-  const scrollTop = () => {
-    if (lenisRef.current) lenisRef.current.scrollTo(0);
-  };
+//   const scrollTop = () => {
+//     if (lenisRef.current) lenisRef.current.scrollTo(0);
+//   };
   
   return (
     <>
