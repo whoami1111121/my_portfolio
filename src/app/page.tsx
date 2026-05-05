@@ -1,35 +1,61 @@
 "use client";
 
-import AboutMe from "@/components/AboutMe";
+import Arrow3D from "@/components/Arrow3D";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
-import Hero from "@/components/Hero";
-import MySkill from "@/components/MySkill";
-import Projects from "@/components/Projects";
-import Services from "@/components/Services";
-import Arrow3D from "@/components/Arrow3D";
 import Marquee from "@/components/Marquee";
+import Projects from "@/components/Projects";
 import StringEffect from "@/components/StringEffect";
 
-import { OrbitControls, Environment } from "@react-three/drei";
-import { useEffect, useRef, useState } from "react";
+import { Environment, OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import { Suspense } from "react";
+import { Suspense, useEffect, useRef, useState } from "react";
+
 
 
 export default function Home() {
-  const lenisRef = useRef(null);
-
+  const lenisRef = useRef<any>(null);
   const [showBtn, setShowBtn] = useState(false);
-// Show button after scroll
+
+  // ✅ Lenis setup (fixed)
   useEffect(() => {
-    const handleScroll = () => setShowBtn(window.scrollY > 300);
+    let lenis: any;
+
+    import("@studio-freight/lenis").then((module) => {
+      const Lenis = module.default;
+      lenis = new Lenis({ duration: 1.2, smooth: true });
+      lenisRef.current = lenis;
+
+      function raf(time: number) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+
+      requestAnimationFrame(raf);
+    });
+
+    // ✅ proper cleanup
+    return () => {
+      if (lenis) lenis.destroy();
+    };
+  }, []);
+
+  // ✅ scroll detection (works fine with Lenis too)
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowBtn(window.scrollY > 300);
+    };
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
   const scrollTop = () => {
-    if (lenisRef.current) lenisRef.current.scrollTo(0);
+    if (lenisRef.current) {
+      lenisRef.current.scrollTo(0);
+    }
   };
+  
   return (
     <>
       <div className="bg-background font-instrument ">
