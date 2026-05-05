@@ -57,7 +57,7 @@ const Navbar = () => {
       >
         <nav className="relative flex items-center justify-between container_my py-4">
           {/* Logo */}
-          <div className="text-white font-bold text-xl">Ranjana</div>
+          <div className="text-white font-bold text-xl">Ujjawal</div>
 
           {/* Menu */}
           <div className="  gap-6 text-white hidden md:flex">
