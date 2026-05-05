@@ -86,8 +86,8 @@ export default function Home() {
           </div>
         )} */}
         
-        {/* <StringEffect />
-        <Marquee /> */}
+         <StringEffect />
+        <Marquee />  
         <Footer />
       </div>
     </>
