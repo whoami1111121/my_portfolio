@@ -23,7 +23,7 @@ const Landing = () => {
         <div className="flex gap-4 items-center justify-center  w-[75%] md:w-[90%] mx-auto">
           <WavingHand />
           <h1 className="text-[clamp(1rem,3vw,1.75rem)] text-white  ">
-            My name is Ranjana Tamang a Frontend Developer.
+            My name is Ujjawal a Frontend Developer.
           </h1>
         </div>
       </div>
@@ -44,7 +44,7 @@ const Landing = () => {
             <GlowFlies />
           </div>
           <Image
-            src="/maam.webp"
+            src="/cat.webp"
             alt="hero"
             width={1000}
             height={1000}
